@@ -4,7 +4,34 @@
     <meta charset="utf-8">
     <title>배경 스타일</title>
     <style>
-			
+      div{/*div태그를 의미*/}
+      .div{/*class속성의 값이 div인 요소*/}
+      #div{/*id속성의 값이 div인 요소*/}
+
+			.container{
+        border: 1px solid black;
+        /*단위(px)를 작성하지 않으면 적용 안됨 */
+        width: 600px;
+        height: 500px;
+        background-image: url(../images/apple-bg.jpg);
+        background-repeat: no-repeat;
+        /* contain : 가로/세로 둘중 하나에 맞게 보여줌(빈공간이 나올수 있음)*/
+        background-size: contain;
+        /* cover : 가득 채워서 보여줌(이미지 짤릴수 있음) */
+        background-size: cover;
+      }
+      .content{
+        background-color: #ffffff72;
+        height: 80px;
+        line-height: 80px;
+        width: 500px;
+        margin: 0px auto;
+        /* border: 1px solid pink; */
+      }
+      h1{
+        font-size: 1.5rem;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
