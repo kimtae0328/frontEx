@@ -6,33 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>꿀사과</title>
     <style>
-        
-        
-        li{
-            border: 1px solid #ccc;
-            line-height:30px;
-            text-align: center;
-            width: 600px;
-
-        }
-        .top{
-            background-color: black;
-            color: #fff;
-            font-weight: 700;
-            text-align: left;
+        *{
+            margin: 0px;
+            padding: 0px;
         }
         ul{
+            /* 목록 스타일 제거 */
             list-style: none;
-            padding-left: 0px;
+            /* 상하좌우 똑같이 적용 */
+            padding: 0px;
+        }
+        li{
+            border: 1px solid #ccc;
+            width: 600px;
+            height: 150px;
+            /* 줄간격 */
+            line-height: 30px;
+            text-align: center;
+        }
+        .top{
+            color: #eee;
+            background-color: #000;
+            font-size: 0.8rem;
+            height: 30px;
+            line-height: 30px;
+            font-weight: 900;
+            text-align: left;
         }
         p{
-            font-size: 1.3rem;
-            color: red;
+            color: rgba(200, 0, 0, 0.688);
             font-weight: 800;
+            font-size: 1.5rem;
+            text-align: center;
         }
         .blue{
             color: blue;
-            font-weight: 600;
+            font-weight: 700;
+        }
+        div{
+            /* 
+            블럭요소의 가운데 정렬 
+            1. 너비를 지정
+            2. 마진을 적용
+            */
+            width: 600px;
+            margin: 0px auto;
+            /* border: 5px solid red; */
         }
     </style>
 </head>
@@ -49,13 +68,13 @@
         </li>
         <li>
             <p>교환 및 환불</p>
-            불만족시 <span class="blue">100% 환불</span>해 드립니다
+            불만족시 <span class="blue">100% 환불</span>해 드립니다<br>
             고객센터로 전화주세요
             <br><br>
         </li>
         <li>
             <p>고객센터</p>
-            0000-0000
+            0000-0000 <br>
             상담시간 : 오전 9시 ~ 오후 6시 (토/일, 공휴일 휴무)
             <br><br>
         </li>
