@@ -19,13 +19,32 @@
         background-size: contain;
         /* cover : 가득 채워서 보여줌(이미지 짤릴수 있음) */
         background-size: cover;
+
+        position: relative;
       }
+      
       .content{
         background-color: #ffffff72;
-        height: 80px;
-        line-height: 80px;
+        /*height: 80px;
+        line-height: 80px;*/
         width: 500px;
-        margin: 0px auto;
+        margin: 0px auto ;
+        /*
+        나의 현재 위치를 기준으로 위치를 잡을때 사용
+        자식요소들의 기준이 될 수 있다
+        
+        position: relative;
+        top: 350px;
+        */
+        position: absolute;
+        bottom: 50px;
+        
+        /*요소의 가로 너비, 세로길이를 이용해서 정렬*/
+        left: 50%;
+        transform: translateX(-50%);
+
+
+        /*margin-top: 350px;*/
         /* border: 1px solid pink; */
       }
       h1{
