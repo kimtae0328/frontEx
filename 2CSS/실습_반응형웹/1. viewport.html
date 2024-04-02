@@ -3,7 +3,23 @@
 <head>
 <meta charset="utf-8">
 <title>Media Queries</title>
-<meta name="viewport" content="width=200, initial-scale=1">
+<style>
+	h3{
+		/* 뷰포트의 단위 
+			- 디바이스의 크기에 따라 상대적인 크기를 지정
+		1vw : 뷰포트 너비의 1%
+		1vh : 뷰포트 높이의 1%
+		1vmin : 뷰포트 너비와 높이중 작은값의 1%
+		1vmax : 뷰포트 너비와 높이중 큰값의 1%
+		*/
+		font-size: 5vw;
+	}
+
+</style>
+<!--기기별로 뷰포트가 다르기 때문에 발생하는 
+	배율 문제에 대응하기 위해 메타태그를 통해 뷰포트를 설정합니다-->
+<!-- 뷰포트의 너비를 단말기 너비에 맞추고 초기 배율은 1로 지정 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <h1>뷰포트</h1>
 <h2>현재 화면에 보여지고 있는 영역을 의미</h2>
