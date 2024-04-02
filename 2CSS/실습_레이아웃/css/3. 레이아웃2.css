@@ -1,0 +1,118 @@
+/* 박스 가운데 정렬 */
+#container{
+    width: 800px;
+    margin: 0px auto;
+}
+
+header{
+    height: 150px;
+    background: url(../images/nav2.png) no-repeat right center #F46075;
+    /* background-size: 100px; */
+}
+*{
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    padding-right: 120px;
+}
+li{
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+    height: 70px;
+    line-height: 70px;
+    /* border: 1px solid; */
+    margin-top:50px;
+    /* margin-left: 30px; */
+}
+a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff;
+    /* border: 1px solid; */
+
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 30px;
+
+    display: inline-block;
+}
+
+/* 마우스를 올렸을때 핑크색으로 색상을 변경 */
+a:hover{
+    background-color: pink;
+}
+/* 첫번째요소의 색상을 핫핑크로 변경 */
+
+nav li:first-child a{
+    background-color: pink;
+}
+section{
+    width: 80%;
+    /* background-color: aquamarine; */
+    float: left;
+}
+aside{
+    width: 20%;
+    background-color: aqua;
+    float:right;
+}
+footer{
+    clear: both;
+    background-color: #F46075;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+article>h3{
+    border-left: 6px solid;
+    padding-left: 5px;
+}
+
+article{
+    display: inline-block;
+    width: 45%;
+    margin: 10px;
+    /* 
+    요소의 세로배치에 사용 되는 속성
+        - 인라인, 인라인블럭요소에서 사용 가능 
+        top : 위쪽 
+        middle : 가운데
+        bottom : 아래쪽
+    */
+    vertical-align: top;
+
+}
+
+article>dl{
+    /* border: 1px dotted; */
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #333;
+    padding: 20px;
+    height: 400px;
+
+}
+
+aside{
+    /* background-image: url(); */
+    height: 800px;
+    background: url(../images/3.png) no-repeat bottom right;
+    background-size: 150px;
+}
+article dt{
+    font-weight: 700;
+    height: 30px;
+    line-height: 30px;
+    background-color: #eee;
+}
+
+article dd{
+    margin: 0px;
+    font-size: 0.9rem;
+}
