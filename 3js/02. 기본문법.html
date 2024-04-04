@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본문법</title>
+    <style>
+        .box1{
+            width: 100%;
+            height: 200px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>기본문법</h1>
+    <hr>
+    <h2>1. 변수와 자료형</h2>
+    <h3>1) 변수 선언</h3>
+    <p>
+        (재사용 하기 위해 변수에 담아놓고 사용)
+
+        1.1. 변수선언
+            키워드 변수명;
+            키워드 : var, let, const
+        1.2. 변수 선언과 동시에 값(요소, 텍스트, 숫자, 배열)을 세팅
+            오른쪽의 값을 왼쪽 변수에 저장(대입)
+            키워드 변수명 = 값
+
+        <hr>
+
+        - 함수 내부에서 'var 변수명;'으로 선언하면 함수에서만 사용 가능한 지역변수가 된다. <br>
+        - 함수 내부에서 '변수명;'으로 선언하거나 함수 밖에서 'var 변수명;'으로 선언하면 전역변수가 된다. <br>
+        - 전역변수와 지역변수가 동일한 이름인 경우, 함수 내부에서 호출하면 지역변수가 우선권을 가진다. <br>
+        - 전역변수 사용 시 'window.변수명' 혹은 'this.변수명'으로 표현해서 사용한다. (window, this) <br>
+        - 전역변수는 해당 window 내에서 어디든 사용할 수 있고, 지역변수는 해당 함수 내에서만 사용이 가능하다.
+
+        <br><br>
+        *참고 - window 객체는 브라우저에서 제공하는 브라우저창(window)에 대한 정보를 담고 있는 객체이다.
+
+    </p>
+
+    <script>
+        // 전역변수
+        var a=123;
+
+        /*
+            반환값을 가질수 있는 재사용 가능한 코드블럭
+            보통 특정 기능을 수행
+        */
+        function test(){
+            // 지역변수 - 함수 내부에서만 사용이 가능
+            var b=123;
+            var a=456;
+            console.log('a', a);
+            console.log(a);
+        }
+
+    </script>
+    <!-- 스크립트 외부파일 등록 -->
+    <script src="js/02. 기본문법.js"></script>
+    <h3>2) 자료형</h3>
+    <p>
+        자바스크립트에서는 변수에 별도로 자료형을 지정해 주지 않고 리터럴에 의해 자료형이 결정된다.<br>
+        * 리터럴 : 값 그 자체를 의미<br>
+        var a=123 -> 숫자
+        var a='123' -> 문자
+    </p>
+    <ul>
+        <li>string(문자열) - "", ''로 감싸줍니다</li>
+        <li>number(숫자)</li>
+        <li>boolean(논리값) - true(참), false(거짓) -> 제어문에서 분기조건 사용</li>
+        <li>object(객체) - 문자,숫자,논리값,함수를 제외한 모든 타입 <br>
+                            전역변수와 함수를 가질수 있다
+        </li>
+        <li>function(함수) - 기능</li>
+        <li>undefined(초기화가 안된 변수), 반환값이 없는경우</li>
+    </ul>
+    <div class="box1"></div>
+    <button onclick="testType()">자료형테스트</button>
+    함수를 만들고 버튼이 클릭되면 div박스에 [자료형 테스트] 라는 문구가 출력 되도록 하시오
+
+
+</body>
+
+</html>
