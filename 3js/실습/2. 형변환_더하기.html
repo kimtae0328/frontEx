@@ -56,6 +56,18 @@
             // 아이디가 num2인 요소의 value값을 num2 변수에 담아봅시다
             var num2 = document.querySelector('#num2').value;
             console.log('num2=', num2);
+
+            
+            // 만약 num1 빈 문자열 이거나 num2가 빈 문자열 이라면 '값을 입력해주세요' 라는 메세지를 출력 후 종료
+            // 또는 ||
+            // 그리고 &&
+            if(num1 == '' || num2 == ''){
+                alert('값을 입력 해주세요');
+                // 함수 종료
+                // 값을 반환
+                return false;
+            }
+
             // (아이디가 res인 요소의 value값에)
             // 변수 num1과 num2의 합을 출력 해봅시다
             var res = document.querySelector('#res');
@@ -67,6 +79,8 @@
             res.value = Number(num1) + Number(num2);
 
         }
+        
+        document.querySelector('#num1').focus();
     </script>
 </body>
 </html>

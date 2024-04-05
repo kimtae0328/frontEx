@@ -166,5 +166,71 @@ function plusTest(){
 
 function opTest(){
     var box4 = document.querySelector('#box4');
-    box4.innerHTML = '연산자 테스트';
+    
+    box4.innerHTML = '"==" 연산자 테스트<br><br>';
+    box4.innerHTML += `7 == 7 : ${7 == 7} <br>`;
+    box4.innerHTML += `'7' == 7 : ${'7' == 7} <br>`;
+    box4.innerHTML += `'7' == '7' : ${'7' == '7'} <br>`;
+    // ! 부정 연산자
+    // == 같은지 확인(같으면 true)
+    // !== 다른지 확인(다르면 true)
+    box4.innerHTML += `'7' != '7' : ${'7' != 7} <br>`;
+    box4.innerHTML += `'7' != '7' : ${7 != '7'} <br><br>`;
+    
+    box4.innerHTML += '"===" 연산자 테스트<br><br>';
+    box4.innerHTML += `7 === 7 : ${7 === 7} <br>`;
+    box4.innerHTML += `'7' === 7 : ${'7' === 7} <br>`;
+    box4.innerHTML += `'7' !== '7' : ${'7' !== 7} <br>`;
+    box4.innerHTML += `'7' !== '7' : ${'7' !== '7'} <br>`;
+
+
+    box4.innerHTML += '연산자 테스트';
+}
+
+
+function ifTest(){
+    var text = document.querySelector('#box5').innerHTML;
+
+    if(text == '조건문'){
+        document.querySelector('#box5').innerHTML = '';
+    }else{
+        document.querySelector('#box5').innerHTML = '조건문 테스트';
+    }
+
+}
+
+
+function forTest(){
+    // 반복문 1~10
+    // for(초기값;조건문;증감값){} 
+    //      : 특정 조건이 충족될때까지 코드블록을 반복해서 실행
+    // 초기값 : i는 0으로 초기화
+    // 조건문 : i는 10보다 작을때까지
+    //          조건을 만족할때 코드블럭을 실행
+    //          조건을 만족하지 않는경우 코드블럭은 종료된
+    // 증감값 : 변수값을 증가, 감소 시켜줍니다
+    // 초기값 -> 조건문 -> 코드블럭실행 -> 증감값
+    for(var i = 0; i < 10; i++){
+    // for(var i = 0; i < 10; i=i+2){
+    // 1~10까지 출력 되도록
+    // i++, i-- : i값이 변경됨
+        console.log("i : ", i+1);
+    }    
+
+    for(var i=1;i<=10;i++){
+        console.log('i=', i);
+    }
+
+
+    // 지정된 조건식이 참일때까지 코드블럭을 반복 실행
+    // while(조건식){}
+    var j=0;
+    while(j<5){
+        console.log('j=', j);
+        // j값이 변경되지 않으면 반복문을 탈출 할수가 없어서 
+        // 무한반복에 빠지게 됩니다.
+        // 문장 내부에 증감식을 갖는 경우가 많다
+        j++;
+    }
+
 }
