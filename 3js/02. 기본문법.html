@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기본문법</title>
     <style>
-        .box1{
+        .box_style{
             width: 100%;
             height: 200px;
             border: 1px solid;
+            /* 부모의 영역을 벗어났을 경우 
+                hidden : 숨김
+                scroll : 스크롤을 보여줌 */
+            overflow: scroll;
         }
     </style>
 </head>
@@ -76,11 +80,40 @@
         <li>function(함수) - 기능</li>
         <li>undefined(초기화가 안된 변수), 반환값이 없는경우</li>
     </ul>
-    <div class="box1"></div>
+    <div class="box1 box_style"></div>
     <button onclick="testType()">자료형테스트</button>
     함수를 만들고 버튼이 클릭되면 div박스에 [자료형 테스트] 라는 문구가 출력 되도록 하시오
 
+    <script>
+        print();
+    </script>
 
+    <h3>출력 테스트</h3>
+    <div id="box2" class="box_style"></div>
+
+    <script>
+        print1()
+    </script>
+
+    <h2>2. 데이터의 형변환</h2>
+    <h3>1) 연산자(문자열과 숫자의 '+' 연산)</h3>
+    <div id="box3" class="box_style"></div>
+    <button onclick="plusTest()">연산자함수 실행</button>
+
+    <h3>2) 강제형변환</h3>
+    숫자로 형변환 Number(값) : 값을 숫자로 변환 하여 반환 <br>
+        parseInt(값) : 값을 정수 숫자로 변환 하여 반환
+        parseFloat(값) : 값을 실수로 변환 하여 반환
+    문자로 형변환 String(값) : 값을 문자로 변환 하여 반환
+
+    <h2>3. 연산자</h2>
+    <h3>'==' 연산자와 '===' 연산자</h3>
+    <p>
+        == : 값이 일치하는지 확인
+        === : 값과 자료형이 일치하는지 확인
+    </p>
+    <button onclick="opTest()">연산자 테스트</button>
+    <div id="box4">     </div>
 </body>
 
 </html>
