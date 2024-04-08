@@ -148,6 +148,21 @@
     <h4>반복문</h4>
     <button onclick="forTest()">반복문 확인</button>
     
+
+    <h4>변수선언시 사용되는 키워드</h4>
+    var, let, const
+    <button onclick="btnClick()">변수 선언 키워드</button>
+    <div id="box6"></div>
+    <script>
+        // 버튼이 클릭 되면 함수를 실행
+        function btnClick(){
+            // id가 box6인 요소를 선택하고 메세지 출력
+            var box6 = document.querySelector('#box6');
+
+            box6.innerHTML='안녕!';
+
+        }
+    </script>
 </body>
 
 </html>

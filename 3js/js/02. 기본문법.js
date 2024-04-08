@@ -234,3 +234,73 @@ function forTest(){
     }
 
 }
+
+
+var str = '전역변수 str';
+
+// window.onload = 이벤트 
+// 페이지가 모두 로드 되면 실행
+// 익명의함수 내부에서 var키워드를 이용해서 선언하면 = 지역변수
+window.onload = function(){
+    // 변수 선언및 초기화
+    var str1 = '지역변수';
+    var str2 = '지역변수2';
+
+    // 변수 선언
+    var str3;
+
+    // 전역변수 
+    //  - 키워드 붙이지 않고 값을 대입
+    str4 = "전역변수";
+
+    console.log(str1);
+    console.log(str2); 
+    console.log(str3); // undefined : 변수선언만 했을경우의 값
+    console.log(str4);
+
+    // =============================================
+
+    // var, let(중복선언 불가능), const(상수 - 변하지 않는 값)
+    
+    // var를 이용할 경우 중복 선언이 가능하다
+    var num = 10;
+    console.log("num", num); // 10
+    var num = 20;
+    console.log("num", num); // 20
+    let num1 = 10;
+    num1=20;    // 변수 : 값의 변경이 가능하다
+    //let num1; // 중복선언시 오류가 발생한다
+    const num2 = 10;
+    // num2 = 20; // 값의 재할당 불가능. 상수는 값을 변경 할 수 없다!!!
+    console.log(num2);
+
+    // 2) 변수의 유효 범위(스코프)
+    num3=10;
+    // - var 키워드는 함수 유효 범위를 갖습니다.
+    // 함수 내부에서 선언하게 되면 함수 어디서든지 사용 할수 있다
+    if(true){
+        // var 키워드는 코드블럭 내부에서 선언되었더라도 코드블럭 외부에서 사용 할 수 있다
+        // 함수 유효 범위를 갖고 있으므로 함수 내부에서 사용 할수 있다!!
+        var num3 = 10;
+
+        console.log("num3", num3);
+    }
+    console.log("num3-if문 외부에서 출력", num3);
+
+    
+    // - let, const 키워드는 블럭 유효 범위를 갖는다.
+    // 어디서 선언됬는지에 따라서 유효 범위가 달라진다
+    // = 선언된 위치의 코드블럭에서 사용이 가능
+    if(true){
+        let num4 = 10;
+        const num5 = 10;
+        console.log('num4', num4);
+        console.log('num5', num5);
+        // 함수코드블럭에 선언된 let 변수
+        // 함수 내부에서 사용 가능
+        console.log('num1', num1);
+    }
+    // 코드블럭 내부에서 선언된 변수는 코드블럭 외부에서 사용할 수 없다
+    // console.log('num4-if문 외부', num4);
+    // console.log('num5-if문 외부', num5);
+}
