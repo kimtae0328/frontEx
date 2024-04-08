@@ -30,16 +30,28 @@
 
     <script>
         function arrayTest1() {
+            // split : 구분자로 문자열을 끊어 배열로 반환 하는 함수
+            // 아이디가 la1인 요소를 선택
+            // 시작태그와 끝태그 사이의 값
+            // 문자열 함수인 split함수를 이용해서 ,로 끊어주고 배열로 반환
             var la1 = document.getElementById('la1').innerHTML.split(',');
             var la2 = document.getElementById('la2').innerHTML.split(',');
             var la3 = document.getElementById('la3').innerHTML.split(',');
             var la4 = document.getElementById('la4').innerHTML.split(',');
 
+            // concat : 배열을 합쳐서 새로운 배열로 반환
             var arr = la1.concat(la2, la3, la4);
 
+            // 텍스트필드의 value값 = 사용자의 입력값
             var text = document.getElementById('text').value;
+
+            // 사용자의 입력값이 배열에 있는지 확인
             var index = arr.indexOf(text);
 
+            // 반환값을 가지고 배열에 존재여부를 확인 할 수 있다
+            // 반환값 : 인덱스 번호
+            // 인덱스 번호가 0보다 작으면 해당 배열에 없는 값!
+            // if(index != -1)
             if(index >= 0) {
                 alert(`${text}는 배열 index ${index}번째에 존재합니다.`);
             } else {

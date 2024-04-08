@@ -81,4 +81,17 @@ window.onload = function(){
         document.querySelector('#box1').innerHTML = msg;
     });
 
+    // 버튼2가 클릭되면 실행할 함수를 추가 합니다
+    document.querySelector('#btn2').addEventListener('click', function(){
+        let array = ['귤', '복숭아', '사과', '망고', '자몽'];
+        let box2 = document.querySelector('#box2');
+        box2.innerHTML = array;
+        console.log('복숭아' , array.indexOf('복숭아'));
+        // 복숭아가 있는 배열의 인덱스 번호 : 
+        // 자몽이 있는 배열의 인덱스 번호 : 
+
+    });
+
+    
+
 }
