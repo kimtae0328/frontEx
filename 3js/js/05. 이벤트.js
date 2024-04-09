@@ -56,6 +56,22 @@ window.onload = function(){
         console.log(this); // window 객체
     }
 
+    let btnSubmit = document.querySelector('#btnSubmit');
+    btnSubmit.addEventListener('click', function(e){
+        let userId = document.querySelector('#userId').value;
+
+        // 정규식을 이용해서 패턴이 일치 하는지 확인
+        // 정규표현식 : 특정 규칙(패턴)을 가진 문자열을 
+        // 검색하거나 치환 확인할때 사용
+        // 이메일, 아이디, 비밀번호 입력시 정규식이 사용됩니다.
+        let regExp = /^[a-zA-Z0-9]{5,12}$/;
+        if(!regExp.test(userId)){
+            alert('아이디형식에 맞지 않습니다.');
+
+            // event객체를 이용한 기본 이벤트 초기화
+            e.preventDefault();
+        }
+    });
 }
 
 function test(btn){
