@@ -57,7 +57,11 @@
                 // console.log(lotto.length);
             }
             console.log(lotto);
-            lotto.sort();
+            
+            // 숫자의 정렬 메서드의 비교함수를 사용하여 정렬
+            lotto.sort(function(a,b){
+                return a-b;
+            });
             // 배열의 모든 요소를 문자열로 출력
             return lotto.join(' ');
         }
