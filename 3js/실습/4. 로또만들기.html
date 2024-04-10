@@ -9,6 +9,16 @@
             height: 30px;
             border: 1px solid;
         }
+        .ball{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background-color: aqua;
+            border-radius: 50%;
+            text-align: center;
+
+        }
     </style>
 </head>
 <body>
@@ -20,8 +30,20 @@
         btn1.addEventListener('click', ()=>{
            let numbers = lotto();
            box1.innerHTML =  numbers;
+
+           makeBall(numbers);
         });
 
+        function makeBall(lotto){
+            // 문자열을 배열로 변환
+            let arr = lotto.split(" ");
+            let ballContent = "<div>";
+            
+            for(let i=0;i<arr.length;i++){
+                ballContent += `<div class='ball'>${arr[i]}</div>`;    
+            }
+            document.querySelector('#box_lotto').innerHTML = ballContent;
+        }
         // 로또 번호를 생성후 반환
         function lotto(){
             // 배열.push() : 배열에 값을 추가
@@ -74,5 +96,6 @@
             return num;
         }
     </script>
+    <div id="box_lotto"></div>
 </body>
 </html>
