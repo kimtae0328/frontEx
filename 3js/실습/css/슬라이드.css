@@ -1,0 +1,34 @@
+*{
+    /* 박스의 크기를 정할때 border영역까지 포함 */
+    box-sizing: border-box;
+}
+#slide{
+    width: 1200px;
+    height: 300px;
+    border: 1px solid;
+    /* overflow: hidden; */
+    /* slide를 기준으로 배치를 하기위해서 */
+    position: relative;
+}
+#prev{
+    /* 부모상자를 기준으로 위치를 잡아줍니다. */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 30px;
+    height: 100%;
+    background-color: #333;
+    /* 투명도 0 ~ 1 */
+    opacity: 0.6;
+
+    text-align: center;
+    padding-top: 120px;
+    color: #fff;
+
+    font-size: 2rem;
+    font-weight: 600;
+}
+#prev:hover{
+    opacity: 1;
+}
