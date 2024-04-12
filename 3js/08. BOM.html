@@ -20,9 +20,28 @@
     <button id="btnStop">종료</button>
     <div id="box1"></div>
     <h3>1) location 객체</h3>
-
+    <p>
+        브라우저의 주소 표시줄과 관련된 객체이다.
+    </p>
+    <!-- location.reload() : 현재 페이지 새로고침 -->
+    <button onclick="location.reload()">새로고침</button>
+    <!-- location.href : 현재 페이지의 url주소를 가지고 있는 속성 -->
+    <button onclick="location.href = location.href ">새로고침</button>
+    <!-- 현재페이지를 요청 url로 변경 (history에 기록되지 않는다!)-->
+    <button onclick="location.replace(location.href)">새로고침</button>
+    <button onclick="location.href='http://naver.com'">naver로 이동</button>
+    <button onclick="location.replace('http://naver.com')">replace(naver로 이동)</button>
     <h3>2) history 객체</h3>
-    <h3>3) navigator 객체</h3>
+    <p>
+        브라우저의 방문 기록과 관련된 객체이다.
+    </p>
+
+    <button onclick="history.back()">back()</button>
+    <button onclick="history.forward()">forward()</button>
+    
+    <h3>3) navigator 객체</h3>ㅣ
+    <button id="btn3">navigator객체의 속성</button>
+
 
     <script>
         btn1.onclick = ()=>{
@@ -74,6 +93,15 @@
 
         btnStop.onclick = ()=>{
             clearInterval(timerId);
+        }
+
+        btn3.onclick=function(){
+            let content = "";
+            for(let key in navigator){
+                content += `key : ${key}, value : ${navigator[key]} \n`;
+            }
+
+            console.log(content);
         }
     </script>
 
