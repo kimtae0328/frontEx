@@ -1,28 +1,89 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <title>프런트엔드 개발자 지원서</title>
-    <style>
-			#container { 
-				width:520px;
-				border:1px solid black;
-				padding:20px 40px;
-				margin:0 auto;
-			}
-      fieldset { margin-bottom:15px; }
-      legend { font-weight:bold; }
-			ul {list-style-type: none;}
-			li { line-height:30px;}
-    </style>
-  </head>
-  <body>
-		<div id="container">
-			프런트엔드 개발자 지원서
+
+<head>
+	<meta charset="utf-8">
+	<title>프런트엔드 개발자 지원서</title>
+	<style>
+		#container {
+			width: 520px;
+			border: 1px solid black;
+			padding: 20px 40px;
+			/* 가운데정렬 - 박스의 너비가 지정되어 있어야지만 가능*/
+			margin: 0 auto;
+		}
+
+		fieldset {
+			padding: 0px;
+			margin-bottom: 15px;
+			border: 0px;
+			margin: 0px;			
+		}
+
+		legend {
+			font-weight: bold;
+		}
+
+		ul {
+			list-style-type: none;
+		}
+
+		li {
+			line-height: 30px;
+			background-color: rgb(252, 97, 97);
+		}
+		p{
+			font-weight: 800;
+		}
+		input{
+			border-radius: 5px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<h1>프런트엔드 개발자 지원서</h1>
+		HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.
+
+		<hr>
+		<form>
 			
-			<form>
+				<p>개인정보</p>
+				<ul>
+					<li>
+						이름 <input type="text" name="name" id="" placeholder="공백없이 입력하세요">
+					</li>
+					<li>
+						연락처 <input type="text" name="phonenumber" id="">
+					</li>
+					
+				</ul>
 				
-			</form>
-		</div>
-  </body>
+				<p>지원분야</p>
+				<ul>
+					<li><input type="radio" name="type" id="" value="pub"> 웹 퍼블리싱 <br>
+						<input type="radio" name="type" id="dev"> 웹 애플리케이션 개발 <br>
+						<input type="radio" name="type" id="conf"> 개발 환경 개선 <br>
+					</li>
+				</ul>
+	
+				<p>지원동기</p>
+				
+				<textarea name="" id=""rows="5" cols="60" placeholder="본사 지원 동기를 간략히 써주세요" ></textarea>
+			<p>
+			<button type="submit">접수하기</button>  <button type="reset">다시쓰기</button>
+			</p>
+		</form>
+		
+
+
+
+		<form>
+
+		</form>
+	</div>
+</body>
+
 </html>

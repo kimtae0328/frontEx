@@ -1,0 +1,74 @@
+
+
+h1{
+    background-color: red;
+    /* 단위필수, 공백으로 연결 */
+    /* 값을 1개 : 위 아래 오른쪽 왼쪽 */
+    /* 값을 2개 : 위 아래 양옆 */
+    /* 값을 3개 : 위 양옆 아래  */
+    /* 값을 4개 : 위 오른쪽 아래 왼쪽 */
+    padding: 20px 10px 30px;
+    margin: 0px;
+}
+body{
+    margin: 0px;
+}
+
+p{
+    width : 500px;
+    height: 200px;
+    border : 1px solid red;
+}
+.red{
+    color: red;
+
+}
+.border{
+    border : 3px dotted greenyellow;
+    /* 영역을 벗어난 경우 숨김*/
+    overflow: hidden;
+}
+div{
+    height: 100px;
+    margin: 0px auto;
+}
+.bg_red{
+    background-color: rgb(247, 143, 143);
+    width: 100px;
+    height: 200px;
+
+}
+.bg_yellow{
+    background-color: rgb(240, 133, 208);
+    width: 200px;
+}
+.bg_green{
+    background-color: rgb(136, 198, 248);
+}
+/* #container : 아이디가 container인 요소의 스타일을 지정*/
+#container{
+    width : 800px;
+    height: 50vh;
+    background-color: #81ffb6ee;
+}
+header{
+    width: 100%;
+    height: 100px;
+    /* #을 붙여서 16진수 숫자로 색상을 표현 할 수도 있다
+       #000000 앞 두자리부터 잘라서 빨간색 하얀색 파란색 
+       #000 검정 ~ #fff 흰색  */
+    background-color: rgb(247, 245, 129);
+
+}
+
+main{
+    width: 100%;
+    height: 300px;
+    background-color: rgba(195, 141, 245, 0.856);
+}
+
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: rgb(253, 170, 93);
+}
