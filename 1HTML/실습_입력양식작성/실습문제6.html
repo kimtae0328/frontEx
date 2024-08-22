@@ -36,8 +36,8 @@
 			<form>
 				<p>개인정보</p>
 				<ul>
-					<li>이름 <input type="text" name="name" id="" placeholder="공백없이 입력하세요"> </li>
-					<li>연락처 <input type="text" name="phone" id=""></li>
+					<li>이름 <input type="text" name="name" id="name" placeholder="공백없이 입력하세요"> </li>
+					<li>연락처 <input type="text" name="phone" id="phone"></li>
 				</ul>
 				<p>지원분야</p>
 				<ul>
@@ -51,11 +51,37 @@
 				<textarea name="" id="" rows="5" cols="50" placeholder="본사 지원 동기를 간략히 써주세요"></textarea>
 				
 				<p>
-					<button type="submit">접수하기</button>
+					<button type="button" id="btn">접수하기</button>
 					<button type="reset">다시쓰기</button>
 				</p>
 
 			</form>
 		</div>
   </body>
+  <script>
+	let btn = document.querySelector('#btn');
+	btn.addEventListener('click', function(){
+		console.log("버튼 클릭 - 함수실행");
+		let name = document.querySelector("#name");
+		// 이름이 입력되었는지 확인
+		if(name.value.length == 0){
+			alert("이름을 입력해주세요");
+		} 
+
+		// 연락처가 입력되었는지 확인
+
+		// 지원분야가 입력되었는지 확인
+		// input태그 중에서 name 속성이 type이고 checked상태인 요소를 선택
+		// 만약 체크된 요소가 없다면 null을 반환
+		let type = document.querySelector('input[name=type]:checked');
+		alert(type);
+		if(type == null){
+			alert("지원분야를 선택해주세요");
+		}
+		// 지원동기가 입력되었는지 확인
+
+
+	});
+
+  </script>
 </html>
