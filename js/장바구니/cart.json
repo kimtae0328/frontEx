@@ -1,0 +1,24 @@
+{"list" : [
+    {
+        "name" : "블루베리 100g"
+        , "price" : "3000"
+        , "amount" : "5"
+        , "total" : "15000"
+        , "img" : "blueberry.jpg"
+    }
+    ,{
+        "name" : "블루베리 200g"
+        , "price" : "6000"
+        , "amount" : "5"
+        , "total" : "30000"
+        , "img" : "blueberry.jpg"
+    }
+    ,{
+        "name" : "블루베리 300g"
+        , "price" : "9000"
+        , "amount" : "5"
+        , "total" : "45000"
+        , "img" : "blueberry.jpg"
+    }
+]
+}

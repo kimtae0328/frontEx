@@ -24,6 +24,14 @@
                 document.querySelector('#res').value = res;
             })
         });
+        fn_check_id();
+        function fn_check_id(){
+            fetch('js/checkId.json')
+            .then(res=>res.json())
+            .then(res=>{
+                console.log(res);
+            })
+        }
     </script>
     <style>
         input{

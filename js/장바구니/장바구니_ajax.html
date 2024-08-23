@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 부트 스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- 폰트어썸 - 아이콘 -->
+    <script src="https://kit.fontawesome.com/ba30180671.js" crossorigin="anonymous"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+        .h24{
+            font-size: 12px;
+            height:24px;
+            width:50px;
+            line-height: 0px;
+            padding: 0px 10px;
+        }
+        img{
+            width:80px;
+            height:80px;
+            margin-left: 10px;
+        }
+        .fs12{
+            font-size: 12px;
+        }
+    </style>
+
+    <script>
+    window.addEventListener('load', function(){
+        console.log('장바구니 목록 불러오기');
+        // 데이터 받아오기
+        $.ajax({
+            url : "/cart.json" //1. 서버 요청 URL
+            , success : function(data){
+                viewCartList(data)
+            }
+        })
+    });
+            
+    function viewCartList(data){ // 서버에서 보내준 데이터를 data로 받음
+        console.log(data);
+
+        data.list.forEach(function(prod, index){
+            console.log(index);
+            console.log(prod);
+
+            // select 박스에 입력될 옵션 (1~10)
+            let selOption = '<option value = "0" disabled></option>';
+            for(let i=1;i<=10;i++){
+                let str_selected = prod.amount==i?'selected':'';
+                selOption += `<option value="${i}" ${str_selected}>${i + (i==10?'+':'')}</option>`;
+            }
+            let prod_content = 
+                `<div class='card-body d-flex flex-row justify-content-between align-items-center'>`
+                + `    <div><input type='checkbox' class='form-check-input' name='chk'> </div>`
+                + "    <div>"
+                + `        <img src='/resources/img/${prod.img}' width='80px' height='80px'>`
+                + "    </div>"
+                + "    <div style='flex:7' class='align-items-center ps-1' >"
+                + "        <span>"
+                + `            ${prod.name} <br>`
+                + `            <span style='font-size: 13px;'>${parseInt(prod.price).toLocaleString()}</span>원`
+                + "        </span>"
+                + "        <p class='card-text input-group' class='align-middle'>"
+                + "            <!-- 수량 선택박스 -->"
+                + `            <select name='selAmount' data-index='${index}'`
+                + `                            class='justify-content-end  border h24' aria-label='.form-select-sm example'>`
+                + selOption
+                + `</select>`
+                + "            "
+                + "            <!-- 수량 입력박스 : 수량이 10개 이상인경우 화면에 노출 -->"
+                + `            <input type='text' name='amount' class='h24 d-none text-end border' value='${prod.amount}'>`
+                + `            <button name='btn_amount_change' class='h24 d-none rounded-pill border ms-1' onclick='fn_change_amount(${index})'>변경</button>`
+                + `            <input type='text' name='price' value='${prod.price}' class='h24 d-none text-end border'>`
+                + `            <input type='text' name='total' value='${prod.total}' class='h24 d-none text-end border'>`
+                + "            <!-- 수량 변경 버튼-->"
+                + "        </p>"
+                + "    </div>"
+                + "    <div style='flex:3' class='text-end'>"
+                + "        <!-- 총금액 출력-->"
+                + `        <span name="txt_total">${parseInt(prod.total).toLocaleString()}</span>원`
+                + "        <button name='btnDelete' class='bg-white border-0'> X </button>"
+                + "    </div>"
+                + "</div>";
+
+            // 카트 목록을 화면에 출력
+            divCart.innerHTML += prod_content;
+            
+            // 삭제버튼 처리
+            let deleteBtns = document.querySelectorAll('[name=btnDelete]');
+            deleteBtns.forEach(function(item){
+                item.addEventListener('click',function(){
+                    // 삭제처리후 노드 삭제
+                    this.parentNode.parentNode.remove();
+                })
+            });
+        });
+
+        // 수량을 변경할 경우 
+        let selAmount = document.querySelectorAll('[name=selAmount]');
+        let amount = document.querySelectorAll('[name=amount]');
+        let btn_amount_change = document.querySelectorAll('[name=btn_amount_change]');
+        
+        
+        selAmount.forEach(function(item, index){
+            item.addEventListener('change', function(e){
+                
+                let selAmountVal = this.selectedIndex;
+                
+                // 10개 이상 입력 할경우 입력박스 노출
+                if(selAmountVal == 10){
+                    // 입력박스 보여주기
+                    amount[index].classList.remove('d-none');
+                    btn_amount_change[index].classList.remove('d-none');
+                    // select박스 숨기기
+                    selAmount[index].classList.add('d-none');
+                } else {
+                    amount[index].value=selAmountVal;
+                    fn_change_amount(index);
+                }
+            })  
+        })
+
+        let chkList = document.querySelectorAll('[name=chk]');
+        let allChk = document.querySelector('#allChk');
+        
+        chkList.forEach(function(item){
+            item.addEventListener('click',function(){
+                fn_change_payment()
+            })
+        })
+        
+        allChk.addEventListener('click', function(){
+            let checked = this.checked;
+            chkList.forEach(function(item){
+                item.checked = checked;
+            })
+            fn_change_payment();
+        })
+    }
+        
+
+    
+    // 수량 변경 - 서버에 전송후 결과 처리
+    function fn_change_amount(index){
+        console.log(i + "번 select 수량변경");
+        let price = document.querySelectorAll('[name=price]')[i].value;
+        let amount = document.querySelectorAll('[name=amount]')[i].value;
+        
+        console.log("가격, 수량, 총금액 : ", price, amount);
+        
+        // 수량 변경 처리 - 서버에 수량 변경 요청 (fatch, ajax)
+        console.log('서버에 수량 변경 요청');
+        
+        // 변경된 가격을 화면에 출력
+        document.querySelectorAll('[name=txt_total]')[i].innerText = (price * amount).toLocaleString();
+
+        fn_change_payment();
+    }
+    
+    function fn_change_payment(){
+        console.log("하단 금액 표시")
+        let sum_price = 0;
+
+        let sum_d_price = 0;
+        
+        let chkList = document.querySelectorAll('[name=chk]');
+        
+        chkList.forEach(function(item, index){
+            if(item.checked){
+                sum_price += $('[name=price]')[index].value 
+                                * $('[name=amount]')[index].value;
+            }
+        })
+        
+        if(sum_price < 50000){
+            sum_d_price = 3000;
+        }
+        
+        
+        payment_price.innerText = sum_price.toLocaleString();
+        payment_d_price.innerText = sum_d_price.toLocaleString();
+        payment.innerText = (sum_price + sum_d_price).toLocaleString();
+    }
+    </script>
+</head>
+<body>
+
+    <h2>장바구니</h2>
+
+    <div class="card m-4">
+        <div class="card-header">
+          <input type='checkbox' id='allChk'> 일반배송
+        </div>
+        <!-- 품목-->
+        <div id='divCart'></div>
+        
+        <!--하단 주문금액 박스-->
+    </div>
+    <div id='divSum' class='border m-4 rounded d-flex flex-row justify-content-center align-items-center fs12' style='height:70px'>
+        
+        총 상품가격<span class='fs-5 fw-bold ms-3' id='payment_price'>0</span>원
+        <i class="fs-5 fw-bold mx-3 fa-solid fa-square-plus"></i>
+        배송비<span class='fs-5 fw-bold ms-3' id='payment_d_price'>0</span>원
+        <i class="fs-5 fa-solid fa-equals mx-3"></i> 
+        총 주문금액 <span class='fs-5 fw-bold ms-3 text-danger' id='payment'>0</span>원
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"/>
+        
+</body>
+</html>
