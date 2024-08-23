@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 요소생성
+        let newp = document.createElement("p");
+        // 2. 텍스트 노드 생성
+        let textNode = document.createElement("자바스크립트를 활용해서 화면에 요소를 추가해 봅시다");
+
+        // 3. 텍스트노드를 자식노드로 연결
+        newp.appendChild(textNode);
+
+        window.addEventListener('load', function(){
+            // 4. body요소의 자식노드로 추가
+            let body = document.querySelector("body");
+            body.appendChild(newp);
+
+            body.innerHTML += `
+                <table border = 1>
+                    <tr><td>테이블생성</td></tr>
+                    <tr><td>1열</td></tr>
+                    <tr><td>2열</td></tr>
+                </table>
+
+            `
+
+        })
+    </script>
+</head>
+<body>
+    <h1>DOM 을 조작해봅시다</h1>
+</body>
+</html>
